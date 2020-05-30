@@ -23,7 +23,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/jamessom/readme-template/">
-    <img src="https://i.imgur.com/fO8fKaD.png" alt="Logo" >
+    <img src="https://i.imgur.com/fO8fKaD.png?1" alt="Logo">
   </a>
 </p>
 
