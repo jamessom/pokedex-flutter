@@ -19,4 +19,13 @@ $ readme-template (bug/bug-xpto) > git commit -a -m "Corrigi bug"
 $ readme-template (bug/bug-xpto) > git push origin bug/bug-xpto
 ```
 
+Um recurso bacana do Github é o [link para issue](https://help.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue), veja o exemplo abaixo:
+
+``` shell
+$ readme-template (master) > git pull origin master
+$ readme-template (master) > git checkout -b bug/bug-xpto
+$ readme-template (feature/link-issue) > git commit -a -m "Corrige bug relacionado a issue #1"
+$ readme-template (feature/link-issue) > git push origin feature/link-issue
+```
+
 Depois abra um Pull Request para sua modificação.

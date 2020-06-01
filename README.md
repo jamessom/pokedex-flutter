@@ -16,8 +16,9 @@
 
 <!-- [![Build Status][build-shield]][build-url]-->
 [![Contributors][contributors-shield]][contributors-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+[![MIT License][license-shield]][license-url] 
+[![Contributor Covenant][contribute_covenant-shield]][contribute_covenant-url] 
+[![LinkedIn][linkedin-shield]][linkedin-url] 
 
 <!-- PROJECT LOGO -->
 <br />
@@ -45,3 +46,6 @@
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/jamessomqueiroz/
+
+[contribute_covenant-shield]: https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-blueviolet.svg?style=flat-square
+[contribute_covenant-url]: https://github.com/jamessom/readme-template/blob/master/CODE_OF_CONDUCT.md
