@@ -23,23 +23,17 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/jamessom/readme-template/">
-    <img src="https://i.imgur.com/fO8fKaD.png?1" alt="Logo">
+  <a href="https://github.com/jamessom/pokedex-flutter/">
+    <img src="https://i.imgur.com/UU23jC5.png" alt="Logo">
   </a>
 </p>
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-<!--
-[coverage-url]:
-[coverage-shield]: https://img.shields.io/codecov/c/github/jamessom/readme-template.svg?style=flat-square
-[build-url]: #
-[build-shield]: https://img.shields.io/badge/build-passing-brightgreen.svg?style=flat-square
-[product-screenshot]: #
--->
+
 [contributors-shield]: https://img.shields.io/badge/contributors-1-orange.svg?style=flat-square
-[contributors-url]: https://github.com/jamessom/readme-template/graphs/contributors
+[contributors-url]: https://github.com/jamessom/pokedex-flutter/graphs/contributors
 
 [license-shield]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
 [license-url]: https://choosealicense.com/licenses/mit
@@ -48,4 +42,4 @@
 [linkedin-url]: https://www.linkedin.com/in/jamessomqueiroz/
 
 [contribute_covenant-shield]: https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-blueviolet.svg?style=flat-square
-[contribute_covenant-url]: https://github.com/jamessom/readme-template/blob/master/CODE_OF_CONDUCT.md
+[contribute_covenant-url]: https://github.com/jamessom/pokedex-flutter/blob/master/CODE_OF_CONDUCT.md
