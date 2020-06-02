@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:pokeflutter/consts/consts_app.dart';
+import 'package:pokeflutter/pages/home_page/widgets/app_bar_home.dart';
 
 class HomePage  extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
     double screenWidth = MediaQuery.of(context).size.width;
+    double statusWidth = MediaQuery.of(context).padding.top;
 
     return Scaffold(
       backgroundColor: Colors.red,
@@ -23,7 +25,17 @@ class HomePage  extends StatelessWidget {
               ),
               opacity: 0.1,
             )
-          )
+          ),
+          Container(
+            child: Column(
+              children: <Widget>[
+                Container(
+                  height: statusWidth,
+                ),
+                AppBarHome(),
+              ],
+            ),
+          ),
         ],
       ),
     );
