@@ -1,8 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:pokeflutter/consts/consts_app.dart';
 import 'package:pokeflutter/pages/home_page/widgets/app_bar_home.dart';
+import 'package:pokeflutter/store/poke_api_store.dart';
 
-class HomePage  extends StatelessWidget {
+class HomePage  extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+  PokeApiStore pokeApiStore;
+
+  @override
+  void initState() {
+    super.initState();
+
+    pokeApiStore = PokeApiStore();
+    pokeApiStore.fetchPokemonList();
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -33,6 +51,25 @@ class HomePage  extends StatelessWidget {
                   height: statusWidth,
                 ),
                 AppBarHome(),
+                Expanded(
+                  child: Container(
+                    child: Observer(
+                      name: 'ListaHomePage',
+                      builder: (BuildContext context) {
+                        return (pokeApiStore.pokeApiModel != null)
+                            ? ListView.builder(
+                              itemCount: pokeApiStore.pokeApiModel.pokemon.length,
+                                itemBuilder: (context, index) {
+                                  return ListTile(title: Text(pokeApiStore.pokeApiModel.pokemon[index].name),);
+                                },
+                              )
+                            : Center(
+                                child: CircularProgressIndicator(),
+                              );
+                      },
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
