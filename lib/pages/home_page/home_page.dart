@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:pokeflutter/consts/consts_app.dart';
+import 'package:pokeflutter/models/pokeapi.dart';
 import 'package:pokeflutter/pages/home_page/widgets/app_bar_home.dart';
-import 'package:pokeflutter/store/poke_api_store.dart';
+import 'package:pokeflutter/stores/poke_api_store.dart';
 
-class HomePage  extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-
   PokeApiStore pokeApiStore;
 
   @override
@@ -23,7 +23,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     double screenWidth = MediaQuery.of(context).size.width;
     double statusWidth = MediaQuery.of(context).padding.top;
 
@@ -33,17 +32,16 @@ class _HomePageState extends State<HomePage> {
         overflow: Overflow.visible,
         children: <Widget>[
           Positioned(
-            top: -(240 / 4.7),
-            left: screenWidth - ( 240 / 1.6 ),
-            child: Opacity(
-              child: Image.asset(
-                ConstsApp.whitePokeball,
-                height: 240,
-                width: 240,
-              ),
-              opacity: 0.1,
-            )
-          ),
+              top: -(240 / 4.7),
+              left: screenWidth - (240 / 1.6),
+              child: Opacity(
+                child: Image.asset(
+                  ConstsApp.whitePokeball,
+                  height: 240,
+                  width: 240,
+                ),
+                opacity: 0.1,
+              )),
           Container(
             child: Column(
               children: <Widget>[
@@ -56,11 +54,15 @@ class _HomePageState extends State<HomePage> {
                     child: Observer(
                       name: 'ListaHomePage',
                       builder: (BuildContext context) {
-                        return (pokeApiStore.pokeApiModel != null)
+                        PokeAPI _pokeApi = pokeApiStore.pokeAPI;
+
+                        return (_pokeApi != null)
                             ? ListView.builder(
-                              itemCount: pokeApiStore.pokeApiModel.pokemon.length,
+                                itemCount: _pokeApi.pokemon.length,
                                 itemBuilder: (context, index) {
-                                  return ListTile(title: Text(pokeApiStore.pokeApiModel.pokemon[index].name),);
+                                  return ListTile(
+                                    title: Text(_pokeApi.pokemon[index].name),
+                                  );
                                 },
                               )
                             : Center(

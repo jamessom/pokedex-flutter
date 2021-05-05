@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:mobx/mobx.dart';
 import 'package:http/http.dart' as http;
-import 'package:pokeflutter/consts/consts_app.dart';
-import 'package:pokeflutter/models/poke_api_model.dart';
+import 'package:pokeflutter/consts/consts_api.dart';
+import 'package:pokeflutter/models/pokeapi.dart';
 
 part 'poke_api_store.g.dart';
 
@@ -11,24 +11,21 @@ class PokeApiStore = _PokeApiStoreBase with _$PokeApiStore;
 
 abstract class _PokeApiStoreBase with Store {
   @observable
-  PokeApiModel _pokeApiModel;
-
-  @computed
-  PokeApiModel get pokeApiModel => _pokeApiModel;
+  PokeAPI pokeAPI;
 
   @action
   fetchPokemonList() {
-    loadPokeApi().then((pokelist) {
-      _pokeApiModel = pokelist;
+    loadPokeAPI().then((pokelist) {
+      pokeAPI = pokelist;
     });
   }
 
-  Future<PokeApiModel> loadPokeApi() async {
+  Future<PokeAPI> loadPokeAPI() async {
     try {
-      final response = await http.get(ConstsApp.baseURL);
+      final response = await http.get(Uri.parse(ConstsAPI.pokeapiURL));
       var decodedJSON = jsonDecode(response.body);
 
-      return PokeApiModel.fromJson(decodedJSON);
+      return PokeAPI.fromJson(decodedJSON);
     } catch (error, stacktrace) {
       print("Erro ao carregar lista" + stacktrace.toString());
       return null;

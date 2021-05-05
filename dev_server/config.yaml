@@ -1,0 +1,4 @@
+name: DevServer
+port: 8080
+db: db.json
+statics: public/

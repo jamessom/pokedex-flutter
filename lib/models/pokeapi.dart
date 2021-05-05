@@ -1,9 +1,9 @@
-class PokeApiModel {
+class PokeAPI {
   List<Pokemon> pokemon;
 
-  PokeApiModel({this.pokemon});
+  PokeAPI({this.pokemon});
 
-  PokeApiModel.fromJson(Map<String, dynamic> json) {
+  PokeAPI.fromJson(Map<String, dynamic> json) {
     if (json['pokemon'] != null) {
       pokemon = new List<Pokemon>();
       json['pokemon'].forEach((v) {
@@ -57,18 +57,14 @@ class Pokemon {
     weight = json['weight'];
     candy = json['candy'];
     egg = json['egg'];
-
     if (json['next_evolution'] != null) {
       nextEvolution = new List<NextEvolution>();
-
       json['next_evolution'].forEach((v) {
         nextEvolution.add(new NextEvolution.fromJson(v));
       });
     }
-
     if (json['prev_evolution'] != null) {
       prevEvolution = new List<PrevEvolution>();
-
       json['prev_evolution'].forEach((v) {
         prevEvolution.add(new PrevEvolution.fromJson(v));
       });
@@ -77,7 +73,6 @@ class Pokemon {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-
     data['id'] = this.id;
     data['num'] = this.num;
     data['name'] = this.name;
@@ -87,15 +82,14 @@ class Pokemon {
     data['weight'] = this.weight;
     data['candy'] = this.candy;
     data['egg'] = this.egg;
-
     if (this.nextEvolution != null) {
-      data['next_evolution'] = this.nextEvolution.map((v) => v.toJson()).toList();
+      data['next_evolution'] =
+          this.nextEvolution.map((v) => v.toJson()).toList();
     }
-
     if (this.prevEvolution != null) {
-      data['prev_evolution'] = this.prevEvolution.map((v) => v.toJson()).toList();
+      data['prev_evolution'] =
+          this.prevEvolution.map((v) => v.toJson()).toList();
     }
-
     return data;
   }
 }
@@ -113,10 +107,8 @@ class NextEvolution {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-
     data['num'] = this.num;
     data['name'] = this.name;
-
     return data;
   }
 }
@@ -134,10 +126,8 @@ class PrevEvolution {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-
     data['num'] = this.num;
     data['name'] = this.name;
-
     return data;
   }
 }
